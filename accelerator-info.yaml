@@ -1,0 +1,32 @@
+id: cd2b5624-d6fa-44e0-a078-836ea353a1d6
+timestamp: 2024-04-15T17:46:03.413Z
+source: TAP-GUI
+username: tfynes-pivotal
+options:
+  bsGitBranch: main
+  projectName: jrcf1
+  artifactId: customer-profile
+  groupId: com.example
+  packageName: com.example.customerprofile
+  buildTool: maven
+  exposeOpenAPIEndpoint: false
+  databaseType: postgres
+  databaseMigrationTool: flyway
+  databaseIntegrationTestType: in-memory
+  includeBuildToolWrapper: true
+  databaseName: customer-database
+  liveUpdateIDESupport: true
+  bsGitRepository: github.com?owner=tfynes-pivotal&repo=jrcf1
+accelerator:
+  name: java-rest-service
+fragments:
+  - name: build-wrapper-gradle
+  - name: build-wrapper-maven
+  - name: live-update
+  - name: spring-boot-database
+  - name: spring-boot-h2
+  - name: spring-boot-mysql
+  - name: spring-boot-postgresql
+  - name: tap-workload
+  - name: testcontainers-mysql
+  - name: testcontainers-postgresql
