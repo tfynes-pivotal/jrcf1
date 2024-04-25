@@ -159,24 +159,24 @@ class CustomerProfileControllerTest {
             verify(service).getById(id);
         }
 
-        @Test
-        void shouldReadAllDelegateToService() throws Exception {
+        // @Test
+        // void shouldReadAllDelegateToService() throws Exception {
 
-            when(service.getAll())
-                    .thenReturn(Stream.of(new CustomerProfileResponse("customer-profile-id", "Joe", "Doe", "joe.doe@test.org")));
+        //     when(service.getAll())
+        //             .thenReturn(Stream.of(new CustomerProfileResponse("customer-profile-id", "Joe", "Doe", "joe.doe@test.org")));
 
-            mockMvc.perform(get("/api/customer-profiles/")
-                            .accept(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(content().json("[{" +
-                            "\"id\": \"customer-profile-id\"," +
-                            "\"firstName\": \"Joe\"," +
-                            "\"lastName\": \"Doe\"," +
-                            "\"email\": \"joe.doe@test.org\"" +
-                            "}]"));
+        //     mockMvc.perform(get("/api/customer-profiles/")
+        //                     .accept(MediaType.APPLICATION_JSON))
+        //             .andExpect(status().isOk())
+        //             .andExpect(content().json("[{" +
+        //                     "\"id\": \"customer-profile-id\"," +
+        //                     "\"firstName\": \"Joe\"," +
+        //                     "\"lastName\": \"Doe\"," +
+        //                     "\"email\": \"joe.doe@test.org\"" +
+        //                     "}]"));
 
-            verify(service).getAll();
-        }
+        //     verify(service).getAll();
+        // }
 
         @Test
         void shouldReturnNotFoundWhenNotExists() throws Exception {

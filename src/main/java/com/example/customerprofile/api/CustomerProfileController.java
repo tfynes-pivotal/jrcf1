@@ -64,7 +64,8 @@ public class CustomerProfileController {
                     description = "Passed customer profile is invalid."
             )
     })
-    @PostMapping({ "", "/" })
+    //@PostMapping({ "", "/" })
+    @PostMapping({ "" })
     public ResponseEntity<CustomerProfileResponse> create(@Valid @RequestBody CustomerProfileCreateRequest body) {
         var customerProfileResponse = service.create(body);
         return ResponseEntity
@@ -127,7 +128,8 @@ public class CustomerProfileController {
             )
     })
     @Transactional(readOnly = true)
-    @GetMapping({ "", "/" })
+    //@GetMapping({ "", "/" })
+    @GetMapping({ "" })
     public ResponseEntity<List<CustomerProfileResponse>> getAll() {
         List<CustomerProfileResponse> all = service.getAll().collect(Collectors.toList());
         return ResponseEntity.ok(all);

@@ -33,6 +33,13 @@
             <artifactId>h2</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+            <version>${springdoc.version}</version>
+        </dependency>
+
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
