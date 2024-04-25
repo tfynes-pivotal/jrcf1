@@ -11,18 +11,18 @@ echo "cf_k8s_service_guid=$cf_k8s_service_guid"
 cf_k8s_service="s-$cf_k8s_service_guid"
 echo "cf_k8s_service=$cf_k8s_service"
 
-echo curl -v --request POST http://localhost:18080/api/convert/openapi -H 'Content-Type: application/json' --data-raw '{
-  "service": {
-    "name": "$cf_k8s_service",
-    "namespace": "$cf_k8s_ns"
+curl -v --request POST http://localhost:18080/api/convert/openapi -H 'Content-Type: application/json' --data-raw "{
+  \"service\": {
+    \"name\": \"$cf_k8s_service\",
+    \"namespace\": \"$cf_k8s_ns\"
   },
-  "openapi": {
-    "location": "http://$cf_k8s_service.$cf_k8s_ns.svc.cluster.local:8080/api-docs"
+  \"openapi\": {
+    \"location\": \"http://$cf_k8s_service.$cf_k8s_ns.svc.cluster.local:8080/api-docs\"
   },
-  "routes": [
+  \"routes\": [
     {
-      "predicates": ["Method=GET,POST,DELETE,PATCH", "Path=/api/**"],
-      "filters":["StripPrefix=0"]
+      \"predicates\": [\"Method=GET,POST,DELETE,PATCH\", \"Path=/api/**\"],
+      \"filters\":[\"StripPrefix=0\"]
     }
   ]
-}' | jq -r . 
+}" | jq -r .  
