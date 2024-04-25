@@ -2,7 +2,7 @@
   "apiVersion": "tanzu.vmware.com/v1",
   "kind": "SpringCloudGatewayRouteConfig",
   "metadata": {
-    "name": "cprc"
+    "name": "s-b1015f6c-524a-4b9c-92dc-5f77ab8868a8"
   },
   "spec": {
     "openapi": {
@@ -112,107 +112,9 @@
         },
         "extensions": {}
       },
-      "ref": "https://customer-profile.a5.fynesy.com/api-docs"
+      "ref": "http://s-b1015f6c-524a-4b9c-92dc-5f77ab8868a8.cf-space-479e8228-c41b-476a-8f9e-2893eb7ab246.svc.cluster.local:8080/api-docs"
     },
     "routes": [
-      {
-        "filters": [
-          "StripPrefix=0"
-        ],
-        "model": {
-          "responses": {
-            "200": {
-              "description": "Customer profiles retrieved successfully.",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "type": "array",
-                    "exampleSetFlag": false,
-                    "items": {
-                      "$ref": "#/components/schemas/CustomerProfileResponse",
-                      "exampleSetFlag": false
-                    },
-                    "types": [
-                      "array"
-                    ]
-                  },
-                  "exampleSetFlag": false
-                }
-              }
-            }
-          }
-        },
-        "predicates": [
-          "Path=/api/customer-profiles/",
-          "Method=GET"
-        ],
-        "title": "Get all customer profiles."
-      },
-      {
-        "filters": [
-          "StripPrefix=0"
-        ],
-        "model": {
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomerProfileCreateRequest",
-                  "exampleSetFlag": false
-                },
-                "exampleSetFlag": false
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "400": {
-              "description": "Passed customer profile is invalid.",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/CustomerProfileResponse",
-                    "exampleSetFlag": false
-                  },
-                  "exampleSetFlag": false
-                }
-              }
-            },
-            "201": {
-              "description": "Customer profile successfully saved.",
-              "headers": {
-                "Location": {
-                  "description": "Contains path which can be used to retrieve saved profile. Last element is it's ID.",
-                  "required": true,
-                  "style": "SIMPLE",
-                  "explode": false,
-                  "schema": {
-                    "type": "string",
-                    "exampleSetFlag": false,
-                    "types": [
-                      "string"
-                    ]
-                  }
-                }
-              },
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/CustomerProfileResponse",
-                    "exampleSetFlag": false
-                  },
-                  "exampleSetFlag": false
-                }
-              }
-            }
-          }
-        },
-        "predicates": [
-          "Path=/api/customer-profiles/",
-          "Method=POST"
-        ],
-        "title": "Saves provided customer profile."
-      },
       {
         "filters": [
           "StripPrefix=0"
@@ -406,7 +308,7 @@
       }
     ],
     "service": {
-      "name": "s-d8ddca8d-6a9e-4388-95e1-7ce38e72a154",
+      "name": "s-b1015f6c-524a-4b9c-92dc-5f77ab8868a8",
       "namespace": "cf-space-479e8228-c41b-476a-8f9e-2893eb7ab246"
     }
   }
